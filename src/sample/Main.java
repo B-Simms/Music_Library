@@ -21,3 +21,23 @@ public class Main extends Application {
         launch(args);
     }
 }
+
+/*
+For new JavaFX projects
+
+.gitignore for java add
+
+	*.iml
+	.idea
+
+for javaFX projects
+right click Project > Open Module Settings
+	Project - Make sure language level matches
+	Global Libraries - right click JavaFX - add to modules
+
+right click src folder > new > module-info.java
+	requires javafx.fxml;
+	requires javafx.controls;
+
+	//opens "package name";
+	opens */
