@@ -1,0 +1,75 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ComboBox?>
+<BorderPane fx:controller="com.blake.music_library.Controller" xmlns:fx="http://javafx.com/fxml">
+    <left>
+        <VBox spacing="20" alignment="TOP_LEFT">
+            <padding>
+                <Insets left="10" top="10"/>
+            </padding>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Search by Artist: "/>
+                    <ComboBox fx:id="artists" promptText="Select Artist" prefWidth="150">
+
+                    </ComboBox>
+                    <fx:define>
+                        <ToggleGroup fx:id="toggleGroup1"/>
+                    </fx:define>
+                        <RadioButton text="List albums" userData="album" toggleGroup="$toggleGroup1" selected="true"/>
+                        <RadioButton text="List songs" userData="songs" toggleGroup="$toggleGroup1"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Search by Genre:"/>
+                    <ComboBox fx:id="genres" promptText="Select Genre" prefWidth="150">
+
+                    </ComboBox>
+                    <fx:define>
+                        <ToggleGroup fx:id="toggleGroup2"/>
+                    </fx:define>
+                    <RadioButton text="List albums" userData="album" toggleGroup="$toggleGroup2" selected="true"/>
+                    <RadioButton text="List songs" userData="songs" toggleGroup="$toggleGroup2"/>
+                </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Search by Year:   "/>
+                <ComboBox fx:id="year" promptText="Select Year" prefWidth="150">
+
+                </ComboBox>
+                <fx:define>
+                    <ToggleGroup fx:id="toggleGroup3"/>
+                </fx:define>
+                <RadioButton text="List albums" userData="album" toggleGroup="$toggleGroup3" selected="true"/>
+                <RadioButton text="List songs" userData="songs" toggleGroup="$toggleGroup3"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="search" text="Search" prefWidth="90"
+                    onAction="#onButtonClick"/>
+            </HBox>
+
+        </VBox>
+
+    </left>
+    <right>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextArea fx:id="results" editable="false" prefHeight="470" prefWidth="400"></TextArea>
+        </HBox>
+    </right>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets bottom="10" right="10"/>
+            </padding>
+            <Button fx:id="exit" text="Exit" prefWidth="90"
+                onAction="#onButtonClick"/>
+        </HBox>
+    </bottom>
+</BorderPane>
