@@ -20,8 +20,6 @@ public class Controller {
     @FXML private ComboBox<String> genres;
     @FXML private ComboBox<Integer> year;
     @FXML private ToggleGroup toggleGroup1;
-    @FXML private ToggleGroup toggleGroup2;
-    @FXML private ToggleGroup toggleGroup3;
 
     //create ObservableLists for ComboBox menus
     private ObservableList<String> artistList = FXCollections.observableArrayList();
@@ -240,7 +238,7 @@ public class Controller {
                 Statement stmnt = conn.createStatement();
                 String query;
 
-                if(toggleGroup2.getSelectedToggle().getUserData().toString().equals("songs")) {
+                if(toggleGroup1.getSelectedToggle().getUserData().toString().equals("songs")) {
                     query = "SELECT DISTINCT song.song_title, artist.artist_name, album.album_title\n" +
                             "FROM album\n" +
                             "INNER JOIN contains\n" +
@@ -262,7 +260,7 @@ public class Controller {
                         textAreaOutput.appendText("'" + output + "' by " + output2 + " from the album " + output3 + "\n");
                     }
                 }
-                else if(toggleGroup2.getSelectedToggle().getUserData().toString().equals("album")){
+                else if(toggleGroup1.getSelectedToggle().getUserData().toString().equals("album")){
                     query = "SELECT DISTINCT album.album_title, artist.artist_name\n" +
                             "FROM album\n" +
                             "INNER JOIN contains\n" +
@@ -300,7 +298,7 @@ public class Controller {
                 Statement stmnt = conn.createStatement();
                 String query;
 
-                if(toggleGroup3.getSelectedToggle().getUserData().toString().equals("songs")) {
+                if(toggleGroup1.getSelectedToggle().getUserData().toString().equals("songs")) {
 
                     query = "SELECT DISTINCT song.song_title, artist.artist_name, album.album_title\n" +
                             "FROM album\n" +
@@ -325,7 +323,7 @@ public class Controller {
                         textAreaOutput.appendText("'" + output + "' by " + output2 + " from the album " + output3 + "\n");
                     }
                 }
-                else if(toggleGroup3.getSelectedToggle().getUserData().toString().equals("album")){
+                else if(toggleGroup1.getSelectedToggle().getUserData().toString().equals("album")){
                     query = "SELECT DISTINCT album.album_title, artist.artist_name\n" +
                             "FROM album\n" +
                             "INNER JOIN contains\n" +
